@@ -3,9 +3,9 @@ import re, telnetlib, sys
 class MemcachedStats:
 
     _client = None
-    _key_regex = re.compile(ur'ITEM (.*) \[(.*); (.*)\]')
-    _slab_regex = re.compile(ur'STAT items:(.*):number')
-    _stat_regex = re.compile(ur"STAT (.*) (.*)\r")
+    _key_regex = re.compile(r'ITEM (.*) \[(.*); (.*)\]')
+    _slab_regex = re.compile(r'STAT items:(.*):number')
+    _stat_regex = re.compile(r"STAT (.*) (.*)\r")
 
     def __init__(self, host='localhost', port='11211'):
         self._host = host
