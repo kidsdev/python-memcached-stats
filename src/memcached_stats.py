@@ -19,8 +19,8 @@ class MemcachedStats:
 
     def command(self, cmd):
         ' Write a command to telnet and return the response '
-        self.client.write("%s\n" % cmd)
-        return self.client.read_until('END')
+        self.client.write(cmd.encode('ascii') + b"\n")
+        return self.client.read_until(b'END').decode()
 
     def key_details(self, sort=True, limit=100):
         ' Return a list of tuples containing keys and details '
